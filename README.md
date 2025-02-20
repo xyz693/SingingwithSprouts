@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singing with Sprouts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6347;
+            --secondary-color: #333;
+            --bg-gradient: linear-gradient(135deg, #f0f4f8, #ffffff);
+            --font-family-main: 'Montserrat', sans-serif;
+            --font-family-header: 'Handlee', cursive;
+            --font-family-title: 'Playfair Display', serif;
+        }
+        body {
+            font-family: var(--font-family-main);
+            margin: 0;
+            text-align: center;
+            background: var(--bg-gradient);
+            color: var(--secondary-color);
+            font-size: clamp(16px, 2vw, 18px);
+            line-height: 1.8;
+            padding-bottom: 40px;
+        }
+        .note {
+            position: fixed;
+            font-size: clamp(20px, 3vw, 24px);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+        .hero-header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f0f4f8, #d3e3e5);
+        }
+        .hero-header .logo img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .hero-header .logo h1 {
+            font-family: var(--font-family-header);
+            font-size: clamp(36px, 6vw, 56px);
+            color: var(--secondary-color);
+        }
+        .cta-button {
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .cta-button:hover {
+            background: #e5533a;
+            transform: translateY(-3px);
+        }
+        .text-box {
+            background: white;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .scroll-effect {
+            height: 60px;
+            margin: 40px 0;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        .two-column-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 15px;
+        }
+        .two-column-section .column {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .two-column-section .column:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-container, .activity-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .benefit, .activity {
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .benefit:hover, .activity:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            font-family: var(--font-family-main);
+            font-weight: bold;
+            z-index: 1000;
+        }
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-menu a:hover {
+            color: #fdd;
+        }
+        .svg-banner {
+            width: 100%;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+        #svg173692 {
+            width: 100%;
+            height: 100px;
+        }
+        .link-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .column img {
+            margin-bottom: 15px;
+        }
+        .column h2 {
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: 600;
+            font-family: var(--font-family-header);
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-nav">
+        <nav class="nav-menu">
+            <a href="#hero-header">Home</a>
+            <a href="#benefits">Benefits</a>
+            <a href="#party-package">Party Packages</a>
+            <a href="#magic-moments">Magic Moments</a>
+            <a href="mailto:singingwithsprouts@gmail.com">Email Us</a>
+            <a href="https://forms.gle/your-google-form-link">Ready to Party?</a>
+        </nav>
+    </header>
+
+    <header id="hero-header" class="hero-header">
+        <div class="logo">
+            <img src="images/sprout_opt.svg" alt="Leaf Logo">
+            <h1>Singing with Sprouts</h1>
+        </div>
+        <p class="tagline">grow in the moment</p>
+        <a href="#next-section" class="cta-button">Get Started</a>
+    </header>
+
+    <section id="benefits" class="promo text-box">
+        <p>Turn up the fun at your child’s birthday or make your next event a success with our kid-friendly party packages!</p>
+    </section>
+
+    <section class="benefits">
+        <h2>Why Celebrate with Us?</h2>
+        <div class="benefit-container">
+            <div class="benefit">
+                <img src="images/lime_opt.svg" alt="Stress-Free Family Fun">
+                <p><strong>Stress-Free Family Fun</strong> when kids are happy, everyone is happy!</p>
+            </div>
+            <div class="benefit">
+                <img src="images/lemon_opt.svg" alt="Educational Entertainment">
+                <p><strong>Educational Entertainment</strong> from an experienced performer and educator.</p>
+            </div>
+            <div class="benefit">
+                <img src="images/orange_opt.svg" alt="Tailored to You">
+                <p><strong>Tailored to You</strong> Every child and party is unique.</p>
+            </div>
+        </div>
+    </section>
+    <div class="scroll-effect">
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            🚂 All Aboard!: Next Stop, Party Town! 🎠   ⚠️ Alert! Fun Levels Rising – Join the Party! 🎉   🚨 Breaking News: Epic Parties Await – Book Now! 🎈   ☀️ Forecast: 100% Chance of Celebrations and Smiles! 😄    📈 Market Trend: High Demand for Epic Parties – Secure Your Spot! 🎊
+        </marquee>
+    </div>
+
+    <section id="party-package" class="party-package text-box">
+        <h2>Build Your Party Package! Pick Your Activities</h2>
+        <div class="activity-container">
+            <div class="activity">
+                <img src="images/banana_opt.svg" alt="Banana Icon">
+                <p><strong>Kids' Concert</strong> kick off the celebration with music, dancing, and games!</p>
+            </div>
+            <div class="activity">
+                <img src="images/strawberry_opt.svg" alt="Strawberry Icon">
+                <p><strong>Face Painting</strong> watch imaginations come to life!</p>
+            </div>
+            <div class="activity">
+                <img src="images/balloon_opt.svg" alt="Balloon">
+                <p><strong>Balloon Animals</strong> the perfect party toy for kids of all ages.</p>
+            </div>
+            <div class="activity">
+                <img src="images/cacticowboy_opt.svg" alt="Cowboy Cacti">
+                <p><strong>Seasonal Specials</strong> ask for more info!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="magic-moments" class="new-section text-box">
+        <h2>Magic Moments</h2>
+        <p>Capture the best moments in life.</p>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <section class="two-column-section">
+        <div class="column">
+            <h2>Say Hi!</h2>
+            <img src="images/flower_opt.svg" alt="Cacti Icon">
+            <div class="link-container">
+                <a href="mailto:singingwithsprouts@gmail.com" class="cta-button">Email Us</a>
+                <a href="https://www.facebook.com/your-facebook-profile" class="cta-button">Facebook</a>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Ready to Party?</h2>
+            <img src="images/cacti_opt.svg" alt="Cacti Icon">
+            <a href="https://forms.gle/your-google-form-link" class="cta-button">I'm Ready!</a>
+        </div>
+    </section>
+
+    <div id="note" class="note">🎵</div>
+
+    <footer>
+        <p>&copy; 2024 Singing with Sprouts. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const note = document.getElementById('note');
+        let lastMove = 0;
+        const delay = 50;
+
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+
+        document.addEventListener('mousemove', throttle(function(event) {
+            note.style.left = event.clientX + 'px';
+            note.style.top = event.clientY + 'px';
+        }, delay));
+
+        if ('ontouchstart' in window) {
+            document.addEventListener('touchmove', function(event) {
+                const touch = event.touches[0];
+                note.style.left = touch.clientX + 'px';
+                note.style.top = touch.clientY + 'px';
+            });
+        }
+    </script>
+</body>
+</html>
